@@ -25,6 +25,7 @@ class Event(models.Model):
     # preview = models.TextField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     participants = models.ManyToManyField(User, blank=True, related_name='events')
+    date = models.DateTimeField()
     # start_date = models.DateTimeField(null=True)
     # end_date = models.DateTimeField(null=True)
     # registration_deadline = models.DateTimeField(null=True)

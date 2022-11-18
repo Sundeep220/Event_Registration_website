@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="section">
+    <h1>{{event.name}}</h1>
+</div>
+
+<a class="btn btn--primary"  href="{% url 'registration-confirmation' event.id %}">Register</a>
+<a class="btn btn--secondary" href="{% url 'project-submission' event.id %}">Submit Project</a>
+<p>{{event.description}}</p>
+
+<div>
+    <h3>Participants</h3>
+    <div>
+        {% for user in event.participants.all %}
+        <div>
+           <strong> <p>{{user.name}}</p></strong>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
