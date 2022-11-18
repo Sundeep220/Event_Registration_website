@@ -27,7 +27,7 @@
     <div class="section">
         <h3>My Submissions</h3>
         {% for sub in user.submissions.all %}
-            <a href="">{{sub.event.name}}</a>
+            <a href="{% url 'update-submission' sub.id %}">{{sub.event.name}}</a>
         
             {% empty %}
             <p>You dont haven't submitted any projects yet</p>
