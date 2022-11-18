@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 import uuid
+from django_resized import ResizedImageField
 # Create your models here.
 
 
@@ -10,7 +11,7 @@ class User(AbstractUser):
     bio = models.TextField(null=True, blank=True)
     hackathon_participant = models.BooleanField(default=True, null=True)
 
-    # avatar = 
+    avatar =  ResizedImageField(size=[300,300], default='avatar.png')
 
     # id = models.UUIDField(default=uuid.uuid4, unique=True,
     #                       primary_key=True, editable=False)
@@ -26,9 +27,9 @@ class Event(models.Model):
     description = models.TextField(null=True, blank=True)
     participants = models.ManyToManyField(User, blank=True, related_name='events')
     date = models.DateTimeField()
-    # start_date = models.DateTimeField(null=True)
-    # end_date = models.DateTimeField(null=True)
-    # registration_deadline = models.DateTimeField(null=True)
+    start_date = models.DateTimeField(null=True)
+    end_date = models.DateTimeField(null=True)
+    registration_deadline = models.DateTimeField(null=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
     # id = models.UUIDField(default=uuid.uuid4, unique=True,
