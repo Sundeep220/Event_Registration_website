@@ -92,6 +92,9 @@ a{
 .btn--warning{
     background-color: #ffe900;
 }
+.btn--danger{
+    background-color: rgb(247, 4, 4);
+}
 
 
 .error{
@@ -240,14 +243,225 @@ nav a{
     margin-top: 1em;
 }
 
+.avatar__border{
+    border:1px solid whitesmoke;
+    width: fit-content;
+    border-radius: 15px;
+    margin: 0;
+    padding: 2px;
+    line-height: 0;
+}
+
+.user--avatar--sm{
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 15px;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
+
+.user--avatar--lg{
+   height: 150px;
+   width: 150px;
+   object-fit: cover;
+   border-radius: 15px;
+   border: 1px solid white;
+   background-color: white;
+   margin: 0;
+   padding: 0;
+   line-height: 0;
+}
+
+
 .users--lists{
     display: flex;
     flex-wrap: wrap;
 }
 
+.paginator--wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
 
-            /* MEDIA_QUERIES */
 
+#account--buttons{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ /* EVENT PAGE STYLING */
+
+ #event--action--wrapper{
+    display: flex;
+    flex-wrap: wrap;
+ }
+
+ /* LOGIN/REGISTRATION/EDIT STYLING */
+
+ 
+
+ .login-register--container,.edit-accinfo-container{
+    max-width: 564px;
+    margin: 0 auto;
+    border:1px solid rgb(218, 218, 218);
+    padding: 45px 50px;
+    color: white;
+    border-radius: 5px;
+}
+
+.form-field--title{
+  font-family: 'Readex Pro';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.login-register--container p.login-greattings{
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  color:gray;
+}
+
+.login-register--container p.login-register-switchpagetext{
+  font-family: 'Readex Pro';
+  font-style: normal;
+  font-weight: 300;
+  justify-content: center;
+  font-size: 20px;
+  line-height: 25px;
+  color:white;
+}
+
+  .login-register--container p.login-register-switchpagetext a{
+      color: aquamarine;
+      font-weight: 500;
+      font-size: 20px;
+  }
+
+.form-field--wrapper{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    align-items: center;
+}
+
+input{
+    width: 100%;
+}
+
+.form-field--wrapper label{
+  line-height: 30px;
+  font-weight: 400; 
+}
+
+input.form-field--input, input#id_password1, input#id_password2{
+  width: 100%;
+  height: 55px;
+  border:1px solid #000000;
+  background-color: rgb(81, 78, 78);
+  border-radius: 5px;
+  padding: 20px;
+}
+
+textarea.form-field--input-txarea{
+  width: 100%;
+  border:1px solid #000000;
+  background-color: rgb(81, 78, 78);
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.login-email , .login-password{
+  width: 100%;
+  height: 55px;
+  border:1px solid #000000;
+}
+
+#id_avatar{
+  width: 100%;
+  outline: none;
+  font-size: 17px;
+  border:1px solid #000000;
+  display: inline-block;
+  color:#BDBDBD;
+}
+
+::-webkit-file-upload-button{
+  color:black;
+  background-color: #EBEBEB;
+  padding:20px;
+  border:none;
+  outline: none;
+}
+input::file-selector-button {
+  color:black;
+  background-color: #EBEBEB;
+  padding:20px;
+  border:none;
+  outline: none;
+}
+
+
+.formsubmit-btn{
+  background-color: #000000;
+  color:white;
+  border:none;
+  width: 100%;
+  margin-left: 0px;
+  height: 60px;
+  margin-bottom: 33px;
+}
+ /* MEDIA_QUERIES */
+
+
+@media (max-width:1200px) {
+   .container--main{
+       width: 100%;
+   }
+}
+
+@media (max-width:800px) {
+
+  #logo--wrapper{
+      display:  none;
+  }
+
+
+  .users--lists{
+ 
+      grid-template-columns: 1fr 1fr 1fr;
+  
+  }
+}
+
+@media (max-width:600px) {
+
+  #intro--headline{
+      font-size: 28px;
+  }
+
+  #intro--subheadline{
+      padding: 2em 1em;
+  
+  }
+
+  .events--lists{
+      grid-template-columns: 1fr;
+
+  }
+
+  .users--lists{
+ 
+      grid-template-columns: 1fr 1fr;
+  
+  }
+}
+
+
+           
 @media (max-width:1200px) {
     .container--main{
         width: 100%;

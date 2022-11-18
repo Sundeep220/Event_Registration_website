@@ -59,7 +59,7 @@
             <a href="{% url 'profile' user.id%}">
                 <div class="wrapper--user">
                     <div class="avatar__border">
-                        <img class="user--avatar--sm" src=""/>
+                        <img class="user--avatar--sm" src="{{user.avatar.url}}"/>
                     </div>
         
                     <p>{{user.name}}</p>
