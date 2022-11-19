@@ -1,9 +1,18 @@
 {% extends 'main.html' %}
 
 {% block content %}
+
+<div>
+    <p>Do you want to register for this event?</p>
+</div>
+
     <form method="POST">
+        <div id="form-wrapper">
         {% csrf_token %}
-         <a href="{% url 'event' event.id %}">Go back</a>
-        <input type="submit" value="Confirm" />
+        <div class="form-field--wrapper" >
+            <a class="btn btn--secondary" href="{% url 'event' event.id %}">Go back</a>
+            <input class="btn btn--warning" type="submit" value="Confirm"/>
+        </div>
+        </div>
     </form>
 {% endblock content %}

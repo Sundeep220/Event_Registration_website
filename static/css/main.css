@@ -356,6 +356,7 @@ nav a{
 }
 
 input{
+    background-color: rgb(87, 84, 84);
     width: 100%;
 }
 
@@ -364,13 +365,23 @@ input{
   font-weight: 400; 
 }
 
-input.form-field--input, input#id_password1, input#id_password2{
+#register{
+    background-color: white;
+}
+
+input.form-field--input, input#id_password1, input#id_password2, input#id_username, input#id_email, input#id_name{
   width: 100%;
   height: 55px;
   border:1px solid #000000;
   background-color: rgb(81, 78, 78);
   border-radius: 5px;
   padding: 20px;
+}
+
+#form-container{
+    padding: 10px;
+    margin: 0 auto;
+    
 }
 
 textarea.form-field--input-txarea{

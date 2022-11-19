@@ -104,15 +104,20 @@ def account_page(request):
 @login_required(login_url='login')
 def project_submission(request, pk):
     event = Event.objects.get(id=pk)
+    registered = request.user.events.filter(id=event.id).exists()
     form = SubmissionForm()
-    if request.method == 'POST':
-        form = SubmissionForm(request.POST)
-        if form.is_valid():
-            submission = form.save(commit=False)
-            submission.participant = request.user
-            submission.event = event
-            submission.save()
-            return redirect('account')
+    if registered == True :
+        if request.method == 'POST':
+            form = SubmissionForm(request.POST)
+            if form.is_valid():
+                submission = form.save(commit=False)
+                submission.participant = request.user
+                submission.event = event
+                submission.save()
+                return redirect('account')
+    else:
+        messages.error(request, 'Please first register for this event.')
+        return redirect('event', pk=event.id)
     context = {'event': event, 'form': form}
     return render(request, 'submit_form.html', context)
 

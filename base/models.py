@@ -13,8 +13,7 @@ class User(AbstractUser):
 
     avatar =  models.ImageField(default='avatar.png')
 
-    # id = models.UUIDField(default=uuid.uuid4, unique=True,
-    #                       primary_key=True, editable=False)
+    id = models.UUIDField(default=uuid.uuid4, unique=True,primary_key=True, editable=False)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
@@ -41,8 +40,7 @@ class Event(models.Model):
     registration_deadline = models.DateTimeField(null=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
-    # id = models.UUIDField(default=uuid.uuid4, unique=True,
-    #                       primary_key=True, editable=False)
+    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
     def __str__(self):
         return self.name
@@ -55,8 +53,7 @@ class Submission(models.Model):
     participant = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name="submissions")
     event = models.ForeignKey(Event, on_delete=models.SET_NULL, null=True)
     details = models.TextField(null=True, blank=False)
-    # id = models.UUIDField(default=uuid.uuid4, unique=True,
-    #                       primary_key=True, editable=False)
+    id = models.UUIDField(default=uuid.uuid4, unique=True,primary_key=True, editable=False)
 
     def __str__(self):
         return str(self.event) + ' --- ' + str(self.participant)

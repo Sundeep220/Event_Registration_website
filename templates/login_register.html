@@ -6,8 +6,8 @@
         <div class="login-register--container">
             <h1 class="form-field--title">Create an Account</h1>
 
-            <div>
-            <form method="POST" action="{% url 'register' %}" enctype="multipart/form-data">
+            <div id="form-container">
+            <form id="register" method="POST" action="{% url 'register' %}" enctype="multipart/form-data">
                 <div id="form-wrapper">
                     {% csrf_token %}
                     {% for field in form %}
@@ -22,9 +22,9 @@
                     </div>
                     {% endfor %}
                     
-                    <input class="btn btn--primary formsubmit-btn" type="submit" value="Register"/>
+                    <input class="btn btn--secondary formsubmit-btn" type="submit" value="Register"/>
                </div>
-            </form> 
+            </form>
             </div>
 
             <p class="login-register-switchpagetext">Already have an account? <a href="{% url 'login' %}">Login</a></p>
@@ -32,7 +32,7 @@
         {% else %}
         <div class="login-register--container section">
             <p class="login-greattings">Welcome to</p>
-            <h1 class="form-field--title">CodeBattels</h1>
+            <h1 class="form-field--title">CodeBattles</h1>
 
             <form method="POST" action="{% url 'login' %}">
                 {% csrf_token %}
