@@ -96,6 +96,14 @@ a{
     background-color: rgb(247, 4, 4);
 }
 
+.btn--success{
+    background-color: #3bcd3b;
+}
+
+.btn--primary{
+    background-color: #4681f4;
+}
+
 
 .error{
     color: #E55D42;
@@ -330,7 +338,6 @@ nav a{
   font-family: 'Readex Pro';
   font-style: normal;
   font-weight: 300;
-  justify-content: center;
   font-size: 20px;
   line-height: 25px;
   color:white;
