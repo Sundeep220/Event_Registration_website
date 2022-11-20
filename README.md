@@ -27,7 +27,7 @@
  - Application go through: \
   -> Login or register site. \
   -> View the dashboard designed showing all ongoing or finished events happened. \
-  -> Click on the eveent to vies its details and register to event. \
+  -> Click on the event to view its details and register to event. \
   -> Submit the response required in each event to if you are lucky you'll be winner of that event based on your submission. \
   -> View or update your user profile.
   
