@@ -239,6 +239,31 @@ nav a{
     margin-right: 1em;
 }
 
+.dot__wrapper{
+    display: flex;
+    align-items: center;
+}
+
+.dot__wrapper *{
+    margin-right: .5em;
+}
+
+.dot{
+    background-color: grey;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+}
+
+.dot--green{
+   background-color: greenyellow;
+}
+
+.dot--red{
+   background-color: #F04438;
+}
+
+
 .wrapper--user{
     display: flex;
     flex-direction: column;
@@ -496,10 +521,10 @@ input::file-selector-button {
 
 
 
-.section a.event-item:hover{
+a.item:hover{
     color: aqua;
 }
 
-.section a.submit-item:hover{
-    color: aqua;
-}
+
+
+

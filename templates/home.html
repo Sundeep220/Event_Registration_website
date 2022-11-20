@@ -37,7 +37,6 @@
                         </div>
                         <p>{{event.participants.all.count}} Participants</p>
                     </div>
-
                     <div>
                         <p>{{event.preview|linebreaks}}</p>
                     </div>
@@ -73,14 +72,19 @@
                         <img class="user--avatar--sm" src="{{user.avatar.url}}"/>
                     </div>
         
-                    <p>{{user.username}}</p>
+                    <p>{{user.name}}</p>
              
                 </div>
             </a>
         {% endfor %}
     </div>
-    
+    <div class="section paginator--wrapper">
+        {% for page in pages %}
+            <a class="btn btn--primary" href="?page={{page}}">{{page}}</a>
+        {% endfor %}
+    </div>
 </section>
+
 
 
 {% endblock %}

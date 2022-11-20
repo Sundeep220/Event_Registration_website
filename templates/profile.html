@@ -10,36 +10,41 @@
     <small><h4>@{{user.username}}</h4></small>
 </div>
 
+
+
 <div class="section">
     {% if user.twitter %}
         <div>
-            <a href="{{user.twitter}}" target="_blank">Twitter</a>
+            <a class="item" href="{{user.twitter}}" target="_blank">Twitter</a>
         </div>
     {% endif %}
 
     {% if user.website %}
         <div>
-            <a href="{{user.website}}" target="_blank">Website</a>
+            <a class="item" href="{{user.website}}" target="_blank">Website</a>
         </div>
     {% endif %}
 
     {% if user.facebook %}
         <div>
-            <a href="{{user.facebook}}" target="_blank">Facebook</a>
+            <a class="item" href="{{user.facebook}}" target="_blank">Facebook</a>
         </div>
     {% endif %}
 
     {% if user.linkedin %}
         <div>
-            <a href="{{user.linkedin}}" target="_blank">Linkedin</a>
+            <a class="item" href="{{user.linkedin}}" target="_blank">LinkedIn</a>
         </div>
     {% endif %}
 
     {% if user.github %}
         <div>
-            <a href="{{user.github}}" target="_blank">github</a>
+            <a class="item" href="{{user.github}}" target="_blank">Github</a>
         </div>
     {% endif %}
+    <div>
+        <a class="item" href="mailto:{{user.email}}" target="_blank">{{user.email}}</a>
+    </div>
 </div>    
 <div class="section">
     {% if user.bio %}

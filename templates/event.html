@@ -7,6 +7,8 @@
 <div class="section">
     <h1>{{event.name}}</h1>
 </div>
+
+{% if event.event_status == 'Ongoing' %}
 <div class="section" id="event--action--wrapper">
     {% if registered %} 
         <p class="text--success">You have already registed for this event {{linebreaks}}</p>
@@ -20,15 +22,16 @@
     {% else %}
     <a class="btn btn--success"  href="{% url 'registration-confirmation' event.id %}">Register</a>
     {% endif %}
-    </div>
-
-
+</div>
+{% else %}
+        <p>Registration closed for this event.</p>
+{% endif %}
 
     <div class="markdown-body">
         {{event.description| safe }}
     </div>
 
-        <div>
+    <div class="section">
             <h3>Participants</h3>
             <div class="users--lists section">
                 {% for user in event.participants.all %}

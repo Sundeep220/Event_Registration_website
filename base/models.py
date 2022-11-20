@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 import uuid
 from django_resized import ResizedImageField
+from datetime import datetime
+import time
 # Create your models here.
 
 
@@ -31,7 +33,7 @@ class User(AbstractUser):
 
 class Event(models.Model):
     name = models.CharField(max_length=200)
-    # preview = models.TextField(null=True, blank=True)
+    preview = models.TextField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     participants = models.ManyToManyField(User, blank=True, related_name='events')
     date = models.DateTimeField()
@@ -47,6 +49,21 @@ class Event(models.Model):
 
     class Meta:
         ordering = ['-end_date']
+
+    @property
+    def event_status(self):
+        status = None
+
+        present = datetime.now().timestamp()
+        deadline = self.registration_deadline.timestamp()
+        past_deadline = (present > deadline)
+
+        if past_deadline:
+            status = 'Finished'
+        else : 
+            status = 'Ongoing'
+
+        return status
 
 
 class Submission(models.Model):

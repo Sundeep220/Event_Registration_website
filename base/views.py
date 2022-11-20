@@ -6,6 +6,7 @@ from django.contrib.auth import login,logout,authenticate
 from django.contrib import messages
 from django.http import HttpResponse
 from django.contrib.auth.hashers import make_password
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 # Create your views here.
 
 def login_page(request):
@@ -65,12 +66,29 @@ def home_page(request):
     if limit == None:
         limit = 20
     limit = int(limit)
+
     users = User.objects.filter(hackathon_participant=True)
-    count = users.count
-    users = users[0:limit]
+    count = users.count()
+
+    paginator = Paginator(users, 10)
+    page = request.GET.get('page')
+
+    try:
+        users = paginator.page(page)
+    except PageNotAnInteger:
+        page = 1
+        users = paginator.page(page)
+    except EmptyPage:
+        page = paginator.num_pages
+        users = paginator.page(page)
+
+    pages = list(range(1, (paginator.num_pages + 1)))
+
+    
     events = Event.objects.all()
-    context = {'users': users,'events':events,'count': count}
+    context = {'users': users,'events':events,'count': count,'paginator':paginator, 'pages':pages}
     return render(request, 'home.html',context)
+
 
 
 def event_page(request, pk):
