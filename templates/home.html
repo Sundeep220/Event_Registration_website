@@ -27,8 +27,19 @@
 
                     <div class="event__preview__details">
                         <div class="dot__wrapper">
+                            {% if event.event_status == 'Ongoing' %}
+                                <div class="dot dot--green"></div>
+                            {% else %}
+                                 <div class="dot dot--red"></div>
+                            {% endif %}
+
+                            <p>{{event.event_status}}</p>
                         </div>
                         <p>{{event.participants.all.count}} Participants</p>
+                    </div>
+
+                    <div>
+                        <p>{{event.preview|linebreaks}}</p>
                     </div>
                     <div class="event__preview__details__bottom">
                         <div>
@@ -41,11 +52,11 @@
                             <p class="event--date">{{event.end_date|date:"m-d-Y"}}</p>
                         </div>
                     </div>
-
                 </div>
             </a>
         {% endfor %}
     </div>
+
 
 </div>
 
@@ -62,7 +73,7 @@
                         <img class="user--avatar--sm" src="{{user.avatar.url}}"/>
                     </div>
         
-                    <p>{{user.name}}</p>
+                    <p>{{user.username}}</p>
              
                 </div>
             </a>

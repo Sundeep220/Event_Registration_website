@@ -51,7 +51,7 @@ h6{
 }
 
 p{
-    color: #637287;
+    color: #909398;
 }
 
 a{
@@ -94,6 +94,7 @@ a{
 }
 .btn--danger{
     background-color: rgb(247, 4, 4);
+    color:white
 }
 
 .btn--success{
@@ -131,6 +132,7 @@ nav{
     align-items: center;
     width: 100%;
     padding: 0.5em 2em;
+   
 }
 
 
@@ -276,7 +278,7 @@ nav a{
    width: 150px;
    object-fit: cover;
    border-radius: 15px;
-   border: 1px solid white;
+   border: 1px solid #2b3031;
    background-color: white;
    margin: 0;
    padding: 0;
@@ -356,7 +358,7 @@ nav a{
 }
 
 input{
-    background-color: rgb(87, 84, 84);
+    background-color: #2b3031;
     width: 100%;
 }
 
@@ -373,10 +375,11 @@ input.form-field--input, input#id_password1, input#id_password2, input#id_userna
   width: 100%;
   height: 55px;
   border:1px solid #000000;
-  background-color: rgb(81, 78, 78);
+  background-color:#2b3031;
   border-radius: 5px;
   padding: 20px;
 }
+
 
 #form-container{
     padding: 10px;
@@ -387,7 +390,7 @@ input.form-field--input, input#id_password1, input#id_password2, input#id_userna
 textarea.form-field--input-txarea{
   width: 100%;
   border:1px solid #000000;
-  background-color: rgb(81, 78, 78);
+  background-color: #2b3031;
   border-radius: 5px;
   padding: 20px;
 }
@@ -424,13 +427,18 @@ input::file-selector-button {
 
 
 .formsubmit-btn{
-  background-color: #000000;
-  color:white;
+  background-color: white;
+  color:black;
   border:none;
   width: 100%;
   margin-left: 0px;
   height: 60px;
   margin-bottom: 33px;
+}
+
+.password{
+    margin-left: 0px;
+    margin-top: 10px;
 }
  /* MEDIA_QUERIES */
 
@@ -484,4 +492,14 @@ input::file-selector-button {
     .container--main{
         width: 100%;
     }
+}
+
+
+
+.section a.event-item:hover{
+    color: aqua;
+}
+
+.section a.submit-item:hover{
+    color: aqua;
 }

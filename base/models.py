@@ -11,7 +11,7 @@ class User(AbstractUser):
     bio = models.TextField(null=True, blank=True)
     hackathon_participant = models.BooleanField(default=True, null=True)
 
-    avatar =  models.ImageField(default='avatar.png')
+    avatar =  ResizedImageField(size=[400,400], default='avatar.png')
 
     id = models.UUIDField(default=uuid.uuid4, unique=True,primary_key=True, editable=False)
 

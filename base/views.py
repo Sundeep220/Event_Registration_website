@@ -1,10 +1,11 @@
 from django.shortcuts import render,redirect
 from .models import *
-from .forms import SubmissionForm,CustomUserCreateForm
+from .forms import SubmissionForm,CustomUserCreateForm,UserForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login,logout,authenticate
 from django.contrib import messages
 from django.http import HttpResponse
+from django.contrib.auth.hashers import make_password
 # Create your views here.
 
 def login_page(request):
@@ -60,9 +61,15 @@ def logout_request(request):
 
 
 def home_page(request):
+    limit = request.GET.get('limit')
+    if limit == None:
+        limit = 20
+    limit = int(limit)
     users = User.objects.filter(hackathon_participant=True)
+    count = users.count
+    users = users[0:limit]
     events = Event.objects.all()
-    context = {'users': users,'events':events}
+    context = {'users': users,'events':events,'count': count}
     return render(request, 'home.html',context)
 
 
@@ -100,6 +107,37 @@ def account_page(request):
     user = request.user
     context = {'user': user}
     return render(request, 'account.html', context)
+
+@login_required(login_url='login')
+def edit_account(request,pk):
+    user = User.objects.get(id=pk)
+    form = UserForm(instance=user)
+
+    if request.method == 'POST':
+        form = UserForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.save()
+            messages.success(request,'Account updated successfully!')
+            return redirect('account')
+
+    context = {'form': form}
+    return render(request,'user_form.html',context)
+
+@login_required(login_url='login')
+def change_password(request):
+    if request.method == 'POST':
+        password1 = request.POST['password1']
+        password2 = request.POST['password2']
+        
+        if password1 == password2:
+            hashed_password = make_password(password1)
+            request.user.password = hashed_password
+            request.user.save()
+            messages.success(request, 'Password was changed!')
+            return redirect('account')
+    context = {}
+    return render(request, 'change_password.html', context)
 
 @login_required(login_url='login')
 def project_submission(request, pk):

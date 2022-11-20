@@ -9,7 +9,7 @@
 </div>
 <div class="section" id="event--action--wrapper">
     {% if registered %} 
-        <p class="text--success">You have already registed for this event || </p>
+        <p class="text--success">You have already registed for this event {{linebreaks}}</p>
         <br>
    
         {% if submitted %} 
@@ -32,7 +32,7 @@
             <h3>Participants</h3>
             <div class="users--lists section">
                 {% for user in event.participants.all %}
-                    <a href="{% url 'profile' user.id%}">
+                    <a href="{% url 'profile' user.id %}">
                         <div class="wrapper--user">
                             <div class="avatar__border">
                                 <img class="user--avatar--sm" src="{{user.avatar.url}}"/>

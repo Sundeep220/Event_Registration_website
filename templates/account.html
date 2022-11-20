@@ -2,13 +2,12 @@
 
 {% block content %}
     <div class="section">
-        <!-- <img class="user--avatar--lg" src="{{user.avatar.url}}"/> -->
-        <h1>My Account</h1>
+        <img class="user--avatar--lg" src="{{user.avatar.url}}"/>
     </div>
 
     <div id="account--buttons">
-        <a class="btn btn--primary" href="">Edit</a>
-        <a class="btn btn--success" href="">Reset password</a>
+        <a class="btn btn--primary" href="{% url 'edit-account' user.id %}">Edit</a>
+        <a class="btn btn--success" href="{% url 'change-password' %}">Reset password</a>
         <a class="btn btn--secondary" href="{% url 'profile' user.id %}">View Profile</a>
     </div>
 
@@ -17,7 +16,7 @@
     <div class="section">
         <h3>My Events</h3>
         {% for event in user.events.all %} 
-            <a href="{% url 'event' event.id %}">{{event.name}}</a>
+            <a class="event-item" href="{% url 'event' event.id %}">{{event.name}}</a>
 
         {% empty %}
             <p>You haven't registed for any events</p>
@@ -27,7 +26,7 @@
     <div class="section">
         <h3>My Submissions</h3>
         {% for sub in user.submissions.all %}
-            <a href="{% url 'update-submission' sub.id %}">{{sub.event.name}}</a>
+            <a class="submit-item" href="{% url 'update-submission' sub.id %}">{{sub.event.name}}</a>
         
             {% empty %}
             <p>You dont haven't submitted any projects yet</p>
