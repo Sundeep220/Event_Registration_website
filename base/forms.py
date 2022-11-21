@@ -23,7 +23,11 @@ class UserForm(ModelForm):
 class SubmissionForm(ModelForm):
     class Meta:
         model = Submission
-        fields = ['details']
+        fields = ['details', 'project_url']
+        widgets = {
+            'details': forms.Textarea(attrs={'class':'form-field--input-txarea'}),
+            'project_url' : forms.TextInput(attrs={'class':'form-field--input'})
+        }
 
 class CustomUserCreateForm(UserCreationForm):
     class Meta:
