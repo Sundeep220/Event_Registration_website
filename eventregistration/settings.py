@@ -24,12 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = "g8bbx3t&c^hb6oj-5akhc90ib_1(g%z6byo3zf_w+i9o5b$p%d"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [".vercel.app",".now.sh", "localhost"]
+ALLOWED_HOSTS = [".vercel.app",".now.sh", "127.0.0.1"]
 
 
 AUTH_USER_MODEL = 'base.User'
@@ -128,7 +128,9 @@ MEDIA_URL = '/images/'
 
 
 
-STATICFILES_DIRS = os.path.join(BASE_DIR,'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'static')
+]
 
 MEDIA_ROOT = BASE_DIR / 'static/images'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
